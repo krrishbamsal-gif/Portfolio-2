@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* ========================================
+   KRRISH PORTFOLIO — GLOBAL STYLES
+   Cinematic dark theme with cyan neon accents
+   ======================================== */
+
+/* Custom CSS Variables */
+:root {
+  --color-bg: #050505;
+  --color-bg-secondary: #0a0a0f;
+  --color-cyan: #00f0ff;
+  --color-cyan-dim: #00a8b3;
+  --color-purple: #a855f7;
+  --color-text: #ffffff;
+  --color-text-muted: #94a3b8;
+  --color-glass: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Base Styles */
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+  color-scheme: dark;
+}
+
+body {
+  font-family: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyan-dim);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan);
+}
+
+/* Selection */
+::selection {
+  background-color: rgba(0, 240, 255, 0.3);
+  color: #fff;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--color-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-glass-border);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Cyan glow text */
+.text-glow {
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.5),
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.15);
+}
+
+.text-glow-strong {
+  text-shadow:
+    0 0 10px rgba(0, 240, 255, 0.7),
+    0 0 30px rgba(0, 240, 255, 0.5),
+    0 0 60px rgba(0, 240, 255, 0.3),
+    0 0 100px rgba(0, 240, 255, 0.15);
+}
+
+/* Cyan glow box shadow */
+.glow-border {
+  box-shadow:
+    0 0 15px rgba(0, 240, 255, 0.15),
+    inset 0 0 15px rgba(0, 240, 255, 0.05);
+}
+
+.glow-border-hover:hover {
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.1),
+    inset 0 0 20px rgba(0, 240, 255, 0.05);
+}
+
+/* Buttons */
+.btn-cyan {
+  background: linear-gradient(135deg, #00f0ff, #00a8b3);
+  color: #050505;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-cyan:hover {
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.5),
+    0 0 40px rgba(0, 240, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #00f0ff;
+  font-weight: 700;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 2px solid #00f0ff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 240, 255, 0.1);
+  box-shadow:
+    0 0 20px rgba(0, 240, 255, 0.3),
+    0 0 40px rgba(0, 240, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Section accent line */
+.accent-line {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #00f0ff, transparent);
+  margin-top: 0.75rem;
+}
+
+/* Gradient overlays */
+.gradient-top {
+  background: linear-gradient(to bottom, var(--color-bg), transparent);
+}
+
+.gradient-bottom {
+  background: linear-gradient(to top, var(--color-bg), transparent);
+}
+
+/* Animations */
+@keyframes pulse-cyan {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(0, 240, 255, 0.5), 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(0, 240, 255, 0.8), 0 0 40px rgba(0, 240, 255, 0.5), 0 0 60px rgba(0, 240, 255, 0.3);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.animate-pulse-cyan {
+  animation: pulse-cyan 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
